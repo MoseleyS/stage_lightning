@@ -25,18 +25,18 @@ class HumanInterface():
             listener.join()
 
     def process_key(self, key):
-        self.log.write(f'{key} pressed; type {type(key)}')
+        self.log.write(f'{key} pressed; type {type(key)}\n')
         if hasattr(key, 'char'):
             key_char = key.char
         else:
             key_char = key
         action = self.key_dict.get(key_char, False)
         if action:
-            self.log.write(f'Running action {action}')
+            self.log.write(f'Running action {action}\n')
             action(key_char)
 
     def check_esc(self, key):
-        self.log.write(f'{key} release')
+        self.log.write(f'{key} release\n')
         if key == Key.esc:
             # close log
             self.log.close()
